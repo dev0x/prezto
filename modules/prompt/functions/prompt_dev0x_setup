@@ -30,7 +30,7 @@ function prompt_dev0x_setup {
   autoload -Uz vcs_info
 
   # Add hook for calling vcs_info before each command.
-  add-zsh-hook precmd prompt_minimal_precmd
+  add-zsh-hook precmd prompt_dev0x_precmd
 
   # Set vcs_info parameters.
   zstyle ':vcs_info:*' enable bzr git hg svn
