@@ -44,7 +44,8 @@ function prompt_dev0x_setup {
   zstyle ':vcs_info:git*+set-message:*' hooks git_status
 
   # Define prompts.
-  PROMPT='%2~${vcs_info_msg_0_} » '
+  PROMPT='%~${vcs_info_msg_0_}
+» '
   RPROMPT=''
 }
 
