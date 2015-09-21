@@ -18,6 +18,7 @@ export EDITOR=/usr/bin/vim
 #following is necessary for playing with some ruby application, its a pain getting the ruby gem path right 
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
+alias vim="nvim"
 
 #Following lines all control the insert or  command prompt color in zsh
 INSERT_PROMPT="gray"	# urxvt (and family) accepts even #RRGGBB
