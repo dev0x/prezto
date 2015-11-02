@@ -13,7 +13,6 @@ fi
 # Customize to your needs...
 #
 bindkey -v
-export EDITOR=/usr/bin/vim
 
 #following is necessary for playing with some ruby application, its a pain getting the ruby gem path right 
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
