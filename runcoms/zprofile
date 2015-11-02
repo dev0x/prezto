@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PAGER='less'
 
 #
@@ -66,9 +66,9 @@ fi
 # Temporary Files
 #
 
-if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/$LOGNAME"
-  mkdir -p -m 700 "$TMPDIR"
-fi
+#if [[ ! -d "$TMPDIR" ]]; then
+#  export TMPDIR="/tmp/$LOGNAME"
+#  mkdir -p -m 700 "$TMPDIR"
+#fi
 
-TMPPREFIX="${TMPDIR%/}/zsh"
+#TMPPREFIX="${TMPDIR%/}/zsh"
