@@ -20,7 +20,8 @@ PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 alias vim="nvim"
 alias x2frank="ssh -Y frankenpad x2x -to :0 -west" 
 alias eclipse="/home/mracine/java-latest-released/eclipse/eclipse"
-alias glogr="git log --graph --decorate --oneline --abbrev-commit"
+alias glogl="git log --graph --decorate --oneline --abbrev-commit"
+alias glogr="git diff-tree --no-commit-id -r"
 
 #Following lines all control the insert or  command prompt color in zsh
 INSERT_PROMPT="gray"	# urxvt (and family) accepts even #RRGGBB
