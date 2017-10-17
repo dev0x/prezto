@@ -5,7 +5,30 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# PATH
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export PYTHONPATH="/usr/local/Cellar/python/2.7.13/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:$PYTHONPATH"
+# export PYTHONPATH=$PYTHONPATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# Virtual Environment
+#export WORKON_HOME=$HOME/.virtualenvs
+#export PROJECT_HOME=$HOME/Projects
+#source /usr/local/bin/virtualenvwrapper.sh
+
+#openssl at the front of the path - unsure
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 # Ensure that a non-login, non-interactive shell has a defined environment.
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+export CURL_CA_BUNDLE=${HOME}/amfam-ssl-certs/ca-bundle.pem
+export NODE_EXTRA_CA_CERTS=${HOME}/amfam-ssl-certs/amfam-ca-bundle.pem
+export HTTPS_CA_FILE=${CURL_CA_BUNDLE}
+export PERL_LWP_SSL_CA_FILE=${CURL_CA_BUNDLE}
+export REQUESTS_CA_BUNDLE=${CURL_CA_BUNDLE}
+export SSL_CERT_FILE=${CURL_CA_BUNDLE}
+
+#set the default AWS profile
+export AWS_DEFAULT_PROFILE=amfam-ieh102

@@ -60,7 +60,7 @@ zstyle ':prezto:module:editor' key-bindings 'vi'
 # zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Allow the zsh prompt context to be shown.
-#zstyle ':prezto:module:editor' ps-context 'yes'
+zstyle ':prezto:module:editor' ps-context 'yes'
 
 #
 # Git
@@ -154,8 +154,7 @@ zstyle ':prezto:module:prompt' theme 'dev0x'
 
 # Set the SSH identities to load into the agent.
 # zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_rsa2' 'id_github'
- zstyle ':prezto:module:ssh:load' identities 'id_rsa' 
- 
+
 #
 # Syntax Highlighting
 #
@@ -207,10 +206,11 @@ zstyle ':prezto:module:terminal:tab-title' format '%m: %s'
 # zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
 # Integrate with iTerm2.
-# zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+zstyle ':prezto:module:tmux:iterm' integrate 'yes'
 
 # Set the default session name:
 # zstyle ':prezto:module:tmux:session' name 'YOUR DEFAULT SESSION NAME'
+zstyle ':prezto:module:tmux:session' name 'main'
 
 #
 # Utility

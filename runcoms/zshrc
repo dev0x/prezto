@@ -14,17 +14,20 @@ fi
 #
 bindkey -v
 
-#following is necessary for playing with some ruby application, its a pain getting the ruby gem path right 
+#Change from default .4 second delay to .1 when switching modes
+export KEYTIMEOUT=1
+
+#following is necessary for playing with some ruby application, its a pain getting the ruby gem path right
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 alias vim="nvim"
-alias x2frank="ssh -Y frankenpad x2x -to :0 -west" 
-alias eclipse="/home/mracine/java-latest-released/eclipse/eclipse"
+#alias x2frank="ssh -Y frankenpad x2x -to :0 -west"
+#alias eclipse="/home/mracine/java-latest-released/eclipse/eclipse"
 alias glogl="git log --graph --decorate --oneline --abbrev-commit"
 alias glogr="git diff-tree --no-commit-id -r"
 
 #Following lines all control the insert or  command prompt color in zsh
-INSERT_PROMPT="gray"	# urxvt (and family) accepts even #RRGGBB
+INSERT_PROMPT="lightgray" # urxvt (and family) accepts even #RRGGBB
 COMMAND_PROMPT="red"
 
 # helper for setting color including all kinds of terminals
@@ -34,17 +37,27 @@ set_prompt_color() {
     elif [[ $TMUX != '' ]]; then
         printf '\033Ptmux;\033\033]12;%b\007\033\\' "$1"
     else
-        echo -ne "\033]12;$1\007"
+        printf '\033]12;%s\007' "$1"
     fi
 }
 
-# change cursor color basing on vi mode
+# change cursor on vi mode
 zle-keymap-select () {
-    if [ $KEYMAP = vicmd ]; then
-        set_prompt_color $COMMAND_PROMPT
-    else
-        set_prompt_color $INSERT_PROMPT
-    fi
+    # change cursor shape in iTerm2
+    #case $KEYMAP in
+    #    vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+    #    viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+    #esac
+
+    #just change color NOT cursorshape
+    case $KEYMAP in
+        vicmd) set_prompt_color $COMMAND_PROMPT;;
+        viins|main) set_prompt_color $INSERT_PROMPT;;
+    esac
+
+    zle reset-prompt
+    zle -R
+
 }
 
 zle-line-finish() {
@@ -60,3 +73,14 @@ zle -N zle-keymap-select
 zle -N zle-line-init
 zle -N zle-line-finish
 
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/mjr066/repos/lazarus/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/mjr066/repos/lazarus/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/mjr066/repos/lazarus/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/mjr066/repos/lazarus/node_modules/tabtab/.completions/sls.zsh
+
+
+export NVM_DIR="$HOME/.nvm"
+source "/usr/local/opt/nvm/nvm.sh"
