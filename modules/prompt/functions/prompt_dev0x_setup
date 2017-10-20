@@ -44,8 +44,8 @@ function prompt_dev0x_setup {
   zstyle ':vcs_info:git*+set-message:*' hooks git_status
 
   # Define prompts.
-  PROMPT='%F{cyan}%~${vcs_info_msg_0_}
-%m%f » '
+  PROMPT='%F{cyan}%~${vcs_info_msg_0_}%f
+%F{59}MacBokPro %f » '
   RPROMPT='%F{147} ➙ %D{%L:%M:%S %p}'
 }
 
